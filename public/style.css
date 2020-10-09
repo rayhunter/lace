@@ -23,6 +23,9 @@ body {
   color: darkolivegreen;
   font-size: .8em; 
 }
+#localtime div {
+  padding: 0 .25em;
+}
 
 .region {
   padding: 0 .25em;
