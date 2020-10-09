@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Roboto, san-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  min-height: 100wh;
+  font-size: 16px;
+}
+
+#localtime {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1em;
+  padding: .5em;
+  color: darkolivegreen;
+  font-size: .8em; 
+}
+
+.region {
+  padding: 0 .25em;
+  color: #000;
+}
+
+.time {
+  padding: 0 .25em;
+  color: darkolivegreen;
+}
+
+
+nav {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+nav a {
+  position: relative;
+  margin: 0 20px;
+  font-size: 1.2em;
+  color: #999;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: rgb(42,126,186);
+}
+
+nav a.active {
+  font-weight: 500;
+  color: #000;
+}
+
+nav #marker {
+  position: absolute;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: #000;
+  bottom: -8px;
+  transition: 0.5s;
+}
+
+nav #markerbg {
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  background: #eee;
+  bottom: -8px;
+  transition: 0.5s;
+}
+
+.section-list {
+  list-style-type: none;
+}
+
+.sections {
+  padding: 40px;
+  font-size: 26px;
+  color: #545454;
+  letter-spacing: 1px;
+  display: none;
+}
+
+.sections a {
+  color: #9f9f9f;
+  text-decoration: none;
+}
+
+/* these breakpoints are arbitrary. normally, I would 
+   align them with standard breakpoints.
+*/
+
+@media only screen and (max-width: 860px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 785px) {
+  nav {
+    flex-direction: column;
+  }
+  nav a {
+    padding: .5em 0;
+  }
+  #marker, #markerbg {
+    display: none;
+  }
+}

@@ -1,5 +1,11 @@
 # lace
 
+## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+this component based on minimalist navigation bar exercise.
+using Vuejs, Javascript, Css, Html.
+
+Ray Hunter: 10/9/2020 
+
 ## Project setup
 ```
 yarn install
