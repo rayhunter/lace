@@ -7,8 +7,10 @@
         <div id="marker"></div>
         <div id="markerbg"></div>
         <ul v-for="location in locations" v-bind:key="location.offset">
-          <li><a href="#">{{location.label}}</a></li>
-        </ul>
+          <li>
+            <a :id="location.section" @click="activate" :href="location.section" :class="myClass">{{location.label}}</a>
+          </li>
+        </ul> 
       </nav>
   </div>
 </template>
@@ -17,6 +19,7 @@
   export default {
     name: 'Nav',
     data: () => ({
+      myClass: false,
       locations: [
         {
           "section": "cupertino",
@@ -54,7 +57,37 @@
           "offset": "10"
         }
       ]
-    })
+    }),
+    methods: {
+      indicator: (e) => {
+        console.log('indicator called');
+        let marker = document.querySelector('#marker');
+        //let items = document.querySelectorAll('nav a');
+
+        marker.style.left = e.offsetLeft + "px";
+        marker.style.width = e.offsetWidth + "px";
+
+        let navBar = document.querySelector('nav');
+        let links = navBar.querySelectorAll('a');
+
+        for (let i = 0; i < links.length; i++) {
+          links[i].className = "";
+        }
+      },
+      activate: (e) => {
+        e.preventDefault();
+        if (e) {
+          let navBar = document.querySelector('nav');
+          let links = navBar.querySelectorAll('a');
+
+          for (let i = 0; i < links.length; i++) {
+            links[i].className = "";
+          }
+          console.log(e.target.id)
+          e.target.className = "active";
+        }
+      }
+    }
   }
 </script>
 
