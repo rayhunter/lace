@@ -65,7 +65,7 @@ nav a.active {
   color: #000;
 }
 
-nav #marker {
+nav #highlite {
   position: absolute;
   left: 0;
   height: 2px;
@@ -75,7 +75,7 @@ nav #marker {
   transition: 0.5s;
 }
 
-nav #markerbg {
+nav #highlitebg {
   position: absolute;
   height: 1px;
   width: 100%;
@@ -118,7 +118,7 @@ nav #markerbg {
   nav a {
     padding: .5em 0;
   }
-  #marker, #markerbg {
+  #highlite, #highlitebg {
     display: none;
   }
 }

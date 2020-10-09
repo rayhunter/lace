@@ -7,8 +7,8 @@
         <div className="time">{{theTime}}</div>
       </div> 
       <nav>
-        <div id="marker"></div>
-        <div id="markerbg"></div>
+        <div id="highlite"></div>
+        <div id="highlitebg"></div>
         <div v-for="location in locations" :key="location.offset" :data-key="location.offset">
           <a v-text="location.label" @click="activate" :id="location.label" :href="location.section"></a>
         </div>   
@@ -61,16 +61,13 @@
         }
       ]
     }),
+
     methods: {
       indicator(e) {
-        console.log('indicator called');
-        let marker = document.querySelector('#marker');
-        //let items = document.querySelectorAll('nav a');
+        let highlite = document.querySelector('#highlite');
+        highlite.style.left = e.srcElement.offsetLeft + "px";
+        highlite.style.width = e.srcElement.offsetWidth + "px";
 
-        marker.style.left = e.offsetLeft + "px";
-        marker.style.width = e.offsetWidth + "px";
-
-        //let localizedTime = this.calculateDateTime(-7);
         let navBar = document.querySelector('nav');
         let links = navBar.querySelectorAll('a');
 
@@ -88,11 +85,13 @@
           for (let i = 0; i < links.length; i++) {
             links[i].className = "";
           }
-          e.target.className = "active";
+          
+          this.indicator(e);
           this.worstBehavior(e);
+          e.target.className = "active";  
         } 
       },
-      
+
       calculateDateTime() {
         let offset = this.offset;
         // get current local time in milliseconds
@@ -107,6 +106,7 @@
 
         return convertedDateTime.toLocaleString();
       },
+
       worstBehavior(e) { // tribute to Drake for no good reason
         if(e) {
           this.currentRegion = e.target.id;
